@@ -6,15 +6,15 @@ module.exports = (action, logChannel, commandMessage, actedUpon, reason) => {
                     title: `Moderator Action: ${action}`,
                     fields: [{
                             name: "Moderator",
-                            value: commandMessage.author,
+                            value: `${commandMessage.author.tag} / ${commandMessage.author}`,
                         },
                         {
                             name: "Channel Executed",
-                            value: commandMessage.channel,
+                            value: `#${commandMessage.channel.name} / ${commandMessage.channel}`,
                         },
                         {
                             name: "User",
-                            value: actedUpon,
+                            value: `${actedUpon.user.tag} / ${actedUpon}`,
                         },
                         {
                             name: "Reason",
