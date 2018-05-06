@@ -1,5 +1,5 @@
 module.exports = (action, logChannel, commandMessage, actedUpon, reason) => {
-    if (logChannel) {
+    return new Promise(async resolve => {if (logChannel) {
     logChannel.send("", {
         embed: {
             title: `Moderator Action: ${action}`,
@@ -24,8 +24,8 @@ module.exports = (action, logChannel, commandMessage, actedUpon, reason) => {
             color: 0x7289DA,
             timestamp: new Date(),
         }
-    }).catch(e=> {
-        console.log("Err", e)
+    }).then(e=> {
+        resolve(e);
     });
-}
+}});
 }
