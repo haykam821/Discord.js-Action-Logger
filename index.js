@@ -8,13 +8,10 @@ module.exports = async (action, logChannel, commandMessage, actedUpon, reason) =
                 title: `Moderator Action: ${action}`,
                 fields: [{
                     name: "Moderator",
-                    value: `${actorUser.tag} / ${actorUser.author}`,
-                }, {
-                    name: "Channel Executed",
-                    value: `#${commandMessage.channel.name} / ${commandMessage.channel}`,
+                    value: `${actorUser.author} (${actorUser.tag})`,
                 }, {
                     name: "User",
-                    value: `${actedUser.tag} / ${actedUser}`,
+                    value: `${actedUser} (${actedUser.tag})`,
                 }, {
                     name: "Reason",
                     value: reason || "*No reason provided.*",
