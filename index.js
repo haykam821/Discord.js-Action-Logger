@@ -16,7 +16,7 @@ module.exports = async (action, logChannel, commandMessage, actedUpon, reason) =
                 title: `Moderator Action: ${action}`,
                 fields: [{
                     name: "Moderator",
-                    value: `${actorUser.author} (${actorUser.tag})`,
+                    value: `${actorUser} (${actorUser.tag})`,
                 }, {
                     name: "User",
                     value: `${actedUser} (${actedUser.tag})`,
