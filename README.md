@@ -15,6 +15,10 @@ Call the function like this:
 ```js
 const actlog = require("discord.js-action-logger");
 actlog("Kick", channel, moderationMessage, actedUpon, reason).then(resolved => {
-	console.log("Everything is all good!", resolved);
+	channel.send("That user has been kicked out of the server.");
 });
 ```
+
+Here is an example of what the formed embed will look like:
+
+![](https://i.imgur.com/ulUlLQM.png)
