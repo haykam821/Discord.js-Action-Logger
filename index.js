@@ -1,17 +1,20 @@
 module.exports = async (action, logChannel, commandMessage, actedUpon, reason) => {
+    const actedUser = actedUpon.user ? actedUpon.user : actedUpon;
+    const actorUser = commandMessage.author;
+
     if (logChannel) {
         return await logChannel.send("", {
             embed: {
                 title: `Moderator Action: ${action}`,
                 fields: [{
                     name: "Moderator",
-                    value: `${commandMessage.author.tag} / ${commandMessage.author}`,
+                    value: `${actorUser.tag} / ${actorUser.author}`,
                 }, {
                     name: "Channel Executed",
                     value: `#${commandMessage.channel.name} / ${commandMessage.channel}`,
                 }, {
                     name: "User",
-                    value: `${actedUpon.user.tag} / ${actedUpon}`,
+                    value: `${actedUser.tag} / ${actedUser}`,
                 }, {
                     name: "Reason",
                     value: reason || "*No reason provided.*",
