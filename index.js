@@ -6,14 +6,14 @@
  * @param {} actedUpon The user being acted upon.
  * @param {string} reason The reason for this action.
  */
-module.exports = async (action, logChannel, commandMessage, actedUpon, reason) => {
+module.exports = (action, logChannel, commandMessage, actedUpon, reason) => {
 	const actedUser = actedUpon.user ? actedUpon.user : actedUpon;
 	const actorUser = commandMessage.author;
 
 	if (logChannel) {
-		return await logChannel.send("", {
+		return logChannel.send("", {
 			embed: {
-				title: `Moderator Action: ${action}`,
+				color: 0x7289DA,
 				fields: [{
 					name: "Moderator",
 					value: `${actorUser} (${actorUser.tag})`,
@@ -24,9 +24,9 @@ module.exports = async (action, logChannel, commandMessage, actedUpon, reason) =
 					name: "Reason",
 					value: reason || "*No reason provided.*",
 				}],
-				color: 0x7289DA,
 				timestamp: new Date(),
-			}
+				title: "Moderator Action: " + action,
+			},
 		});
 	}
 }
